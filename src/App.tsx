@@ -14,9 +14,9 @@ const MainContainer = styled.div`
   align-items: center;
   width: 100%;
   min-height: 100vh;
+  height: fit-content;
   background-color: #1b263b;
   color: white;
-  overflow: hidden;
 `;
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
     setTimeout(() => {
       setLogo(false);
     }, 6000);
-    window.addEventListener("scroll", scrollEvent, { passive: true });
+    window.addEventListener("scroll", scrollEvent);
     return () => {
       window.removeEventListener("scroll", scrollEvent);
     };

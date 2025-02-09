@@ -135,7 +135,7 @@ function Logo() {
       <LogoItem3 starter={logoViewing} left={42 + logoPosition}>
         E
       </LogoItem3>
-      <LogoImage src="../../public/images/castle.png" />
+      <LogoImage src="./images/castle.png" />
     </LogoContainer>
   );
 }
