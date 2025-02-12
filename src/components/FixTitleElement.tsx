@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { ReactNode } from "react";
+import { forwardRef, ReactNode } from "react";
 interface Props {
   title: ReactNode;
   info: ReactNode;
@@ -16,6 +16,7 @@ const FixElementContainer = styled.div`
   height: fit-content;
   gap: 20px;
   position: relative;
+  margin-bottom: 30%;
 `;
 /** 고정형 타이틀 Element 설명부분 */
 const FixElementInfo = styled.div`
@@ -30,19 +31,22 @@ const FixElementInfo = styled.div`
   gap: 150px;
 `;
 /** 고정형 타이틀을 이용한 설명형 구성 */
-function FixTitleElement({ title, info }: Props) {
+function FixTitleElement(
+  { title, info }: Props,
+  ref: React.ForwardedRef<HTMLDivElement>
+) {
   return (
-    <FixElementContainer>
+    <FixElementContainer ref={ref}>
       {title}
       <FixElementInfo>{info}</FixElementInfo>
     </FixElementContainer>
   );
 }
 
-export default FixTitleElement;
+export default forwardRef(FixTitleElement);
 
 /** 고정형 타이틀 컨테이너 */
-export const FixTitleContainer = styled.div`
+export const FixTitleContainer = styled.div<{ titleView: boolean }>`
   position: -webkit-sticky;
   position: sticky;
   top: 100px;
@@ -50,6 +54,26 @@ export const FixTitleContainer = styled.div`
   border-radius: 2px;
   padding: 10px;
   width: 100%;
+  @media screen and (max-width: 1040px) {
+    border-left: 0;
+    border-top: 3px solid red;
+    position: static;
+  }
+  opacity: 0;
+  animation: ${({ titleView }) => (titleView ? "textAppear" : "")} 1s linear
+    both;
+  @keyframes textAppear {
+    from {
+      & {
+        opacity: 0;
+      }
+    }
+    to {
+      & {
+        opacity: 1;
+      }
+    }
+  }
 `;
 /** 고정형 타이틀 */
 export const FixTitle = styled.p`
@@ -59,16 +83,25 @@ export const FixTitle = styled.p`
   font-weight: bold;
   text-transform: uppercase;
 `;
+export const FixTitleImage = styled.img`
+  height: 300px;
+`;
 export const FixInfoTitle = styled.p`
   font-size: 2em;
   text-align: center;
 `;
+
 /** 고정형 타이틀 Element 설명 콘테이너 */
 export const FixInfoDetailBox = styled.div`
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100%;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  box-shadow: 3px -3px 10px #00000057, -3px 3px 10px #00000057;
 `;
 /** 고정형 타이틀 Element 설명 text */
 export const FixInfoDetailSpan = styled.span`
@@ -81,4 +114,9 @@ export const FixInfoDetailEnter = styled.p`
   font-size: 1em;
   text-align: start;
   word-wrap: break-word;
+  display: flex;
+  align-items: center;
+`;
+export const FixInfoImage = styled.img`
+  width: 50%;
 `;

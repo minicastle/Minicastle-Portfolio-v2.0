@@ -1,5 +1,12 @@
+import Footer from "../components/FooterBar";
+
 function Projects() {
-  return <div>Projects</div>;
+  return (
+    <div>
+      Projects
+      <Footer />
+    </div>
+  );
 }
 
 export default Projects;
