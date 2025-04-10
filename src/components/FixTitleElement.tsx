@@ -29,6 +29,7 @@ const FixElementInfo = styled.div`
   flex-shrink: 1;
   height: fit-content;
   gap: 150px;
+  padding-top: 20px;
 `;
 /** 고정형 타이틀을 이용한 설명형 구성 */
 function FixTitleElement(
@@ -99,8 +100,7 @@ export const FixInfoDetailBox = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding-left: 20px;
-  padding-bottom: 20px;
+  padding: 20px;
   box-shadow: 3px -3px 10px #00000057, -3px 3px 10px #00000057;
 `;
 /** 고정형 타이틀 Element 설명 text */
@@ -116,6 +116,7 @@ export const FixInfoDetailEnter = styled.p`
   word-wrap: break-word;
   display: flex;
   align-items: center;
+  max-width: 80%;
 `;
 export const FixInfoImage = styled.img`
   width: 50%;

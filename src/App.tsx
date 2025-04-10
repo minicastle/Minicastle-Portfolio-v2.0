@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import NavBar from "./components/NavBar";
 import { useCallback, useEffect, useState } from "react";
 import Logo from "./components/Logo";
+import TestPage from "./pages/TestPage";
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -52,9 +53,11 @@ function App() {
               )
             }
           />
+          <Route path="/home" element={<Home scrollEvent={scroll} />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/test" element={<TestPage />} />
           <Route path="/*" element={<Navigate to={"/"} />} />
         </Routes>
       </BrowserRouter>

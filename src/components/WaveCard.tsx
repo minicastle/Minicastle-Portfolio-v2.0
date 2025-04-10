@@ -10,6 +10,7 @@ const WaveContainer = styled.div<{
   fontColor: string | undefined;
 }>`
   display: flex;
+  box-sizing: border-box;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -99,6 +100,6 @@ export const WaveCardContainer = styled.div`
   flex-flow: wrap;
   gap: 10px;
   width: 100%;
-  max-width: 940px;
+  max-width: 1000px;
   height: fit-content;
 `;

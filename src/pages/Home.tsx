@@ -34,7 +34,6 @@ const HomeContainer = styled.div`
   height: fit-content;
   margin-top: 100px;
   position: relative;
-  z-index: 1;
 `;
 const Section = styled.section`
   position: relative;
@@ -57,7 +56,6 @@ const SectionContainer = styled.div<{ direction: "row" | "column" }>`
   z-index: 10;
   min-height: 600px;
   height: fit-content;
-  z-index: 1;
 `;
 const SectionBackground = styled.img`
   position: absolute;
@@ -134,7 +132,7 @@ function Home({ scrollEvent }: Props) {
           setTitleView(1);
         }
       },
-      { rootMargin: "-100px 0px -30% 0px" }
+      { rootMargin: "-100px 0px -20% 0px" }
     );
     const Title2 = new IntersectionObserver(
       (e) => {
@@ -142,7 +140,7 @@ function Home({ scrollEvent }: Props) {
           setTitleView(2);
         }
       },
-      { rootMargin: "-100px 0px -30% 0px" }
+      { rootMargin: "-100px 0px -20% 0px" }
     );
     const Title3 = new IntersectionObserver(
       (e) => {
@@ -150,7 +148,7 @@ function Home({ scrollEvent }: Props) {
           setTitleView(3);
         }
       },
-      { rootMargin: "-100px 0px -30% 0px" }
+      { rootMargin: "-100px 0px -20% 0px" }
     );
     if (Titles.current) {
       Title1.observe(Titles.current[0]);
@@ -189,7 +187,7 @@ function Home({ scrollEvent }: Props) {
       <Section id="home section2">
         <SectionContainer
           id="about"
-          style={{ width: "90%" }}
+          style={{ width: "90%", marginTop: 50 }}
           direction="column"
         >
           <FixTitleElement

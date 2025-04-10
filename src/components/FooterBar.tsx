@@ -15,6 +15,8 @@ const Container = styled.div`
   width: 100%;
   max-height: 400px;
   height: fit-content;
+  user-select: none;
+  z-index: 10;
 `;
 /** 메인 리스트 */
 const MainList = styled.ul`
@@ -137,13 +139,13 @@ function Footer() {
         >
           <WobbleTop>About</WobbleTop>
           <SubList>
-            <SubListItem onClick={() => navigate("/about#school")}>
+            <SubListItem onClick={() => navigate("/about?id=school")}>
               <WobbleTop>School</WobbleTop>
             </SubListItem>
-            <SubListItem onClick={() => navigate("/about#career")}>
+            <SubListItem onClick={() => navigate("/about?id=career")}>
               <WobbleTop>Career</WobbleTop>
             </SubListItem>
-            <SubListItem onClick={() => navigate("/about#education")}>
+            <SubListItem onClick={() => navigate("/about?id=education")}>
               <WobbleTop>Education</WobbleTop>
             </SubListItem>
           </SubList>
@@ -162,13 +164,13 @@ function Footer() {
         >
           <WobbleTop>Contact</WobbleTop>
           <SubList>
-            <SubListItem onClick={() => navigate("/contact#email")}>
+            <SubListItem onClick={() => navigate("/contact?id=email")}>
               <WobbleTop>E-mail</WobbleTop>
             </SubListItem>
-            <SubListItem onClick={() => navigate("/contact#git")}>
+            <SubListItem onClick={() => navigate("/contact?id=git")}>
               <WobbleTop>Git</WobbleTop>
             </SubListItem>
-            <SubListItem onClick={() => navigate("/contact#address")}>
+            <SubListItem onClick={() => navigate("/contact?id=address")}>
               <WobbleTop>Address</WobbleTop>
             </SubListItem>
           </SubList>
