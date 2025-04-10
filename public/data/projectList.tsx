@@ -51,7 +51,7 @@ export const Original: ProjectSet[] = [
   },
   {
     title: "Music Selector",
-    img: "../dataimage/musicselector.PNG",
+    img: "../dataimage/musicselector.png",
     info: "",
     tags: ["Original", "React", "Netlify"],
     link: "https://musicselector.netlify.app/",
@@ -64,7 +64,7 @@ export const Original: ProjectSet[] = [
 export const Clone: ProjectSet[] = [
   {
     title: "카카오",
-    img: "../dataimage/kakao.PNG",
+    img: "../dataimage/kakao.png",
     info: "카카오 페이지의 클론코딩 페이지 입니다.",
     tags: ["Clone", "React", "contents-board"],
     link: "https://minicastle.github.io/Clone-Kakao/",
@@ -74,7 +74,7 @@ export const Clone: ProjectSet[] = [
   },
   {
     title: "Colco",
-    img: "../dataimage/colco.PNG",
+    img: "../dataimage/colco.png",
     info: "",
     tags: ["Clone", "React", "App"],
     link: "https://minicastle.github.io/Clone-Colco/",
@@ -84,7 +84,7 @@ export const Clone: ProjectSet[] = [
   },
   {
     title: "Jolly-Flow",
-    img: "../dataimage/jollyflow.PNG",
+    img: "../dataimage/jollyflow.png",
     info: "",
     tags: ["Clone", "React", "christmas"],
     link: "https://minicastle.github.io/Clone-JollyFlow/",
