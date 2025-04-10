@@ -1,3 +1,4 @@
+import projectTycoon from "../dataimage/projecttycoon.png";
 export interface ProjectSet {
   title: string;
   img: string;
@@ -11,7 +12,7 @@ export interface ProjectSet {
 export const Original: ProjectSet[] = [
   {
     title: "ProjectTycoon",
-    img: "../dataimage/projecttycoon.png",
+    img: projectTycoon,
     info: "",
     tags: ["Original", "Team Project", "Front", "Back"],
     link: "http://projecttycoon.com",

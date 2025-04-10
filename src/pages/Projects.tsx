@@ -30,12 +30,12 @@ function Projects() {
       <h1></h1>
       <ProjectCardContainer>
         <ProjectCard deg={-5} data={originalData[0]} key={"test1"} />
-        <ProjectCard deg={3} data={originalData[1]} key={"test2"} />
+        {/* <ProjectCard deg={3} data={originalData[1]} key={"test2"} />
         <ProjectCard deg={-2} data={originalData[2]} key={"test3"} />
         <ProjectCard deg={-2} data={originalData[3]} key={"test4"} />
         <ProjectCard deg={-2} data={originalData[4]} key={"test5"} />
         <ProjectCard deg={-2} data={originalData[5]} key={"test6"} />
-        <ProjectCard deg={-2} data={originalData[6]} key={"test7"} />
+        <ProjectCard deg={-2} data={originalData[6]} key={"test7"} /> */}
       </ProjectCardContainer>
       Projects
       <Footer />
