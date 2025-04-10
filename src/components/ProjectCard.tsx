@@ -1,14 +1,9 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { FaExternalLinkSquareAlt, FaGithubSquare } from "react-icons/fa";
+import { ProjectSet } from "../../public/data/projectList";
 interface Props {
-  title: string;
-  info: string;
-  img: string;
-  link: string;
-  git: string;
-  color: string;
-  start: string;
+  data: ProjectSet;
   deg: number;
 }
 const CardContainer = styled.div<{ deg: number }>`
@@ -81,16 +76,7 @@ const CardButton = styled.a`
 `;
 const CardTitle = styled.p``;
 
-function ProjectCard({
-  title,
-  info,
-  img,
-  link,
-  git,
-  color,
-  start,
-  deg,
-}: Props) {
+function ProjectCard({ data, deg }: Props) {
   const [hover, setHover] = useState<boolean>(false);
   return (
     <CardContainer
@@ -100,14 +86,14 @@ function ProjectCard({
     >
       <CardToBlack hover={hover} />
       <CardContents hover={hover}>
-        <CardThumbnail src={img} />
-        <CardTitle>{title}</CardTitle>
+        <CardThumbnail src={data.img} />
+        <CardTitle>{data.title}</CardTitle>
         <CardJustifyContainer>
-          <CardButton href={link} target="blank">
+          <CardButton href={data.link} target="blank">
             SITE
             <FaExternalLinkSquareAlt size={15} />
           </CardButton>
-          <CardButton href={git} target="blank">
+          <CardButton href={data.git} target="blank">
             GIT <FaGithubSquare size={15} />
           </CardButton>
         </CardJustifyContainer>
