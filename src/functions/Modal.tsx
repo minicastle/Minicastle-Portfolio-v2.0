@@ -96,7 +96,7 @@ function Modal({ shown, closer, data }: Props) {
       </ModalFnContainer>
       <ModalThumbContainer></ModalThumbContainer>
       <ModalInfoContainer>
-        <Markdown remarkPlugins={[remarkGfm]} />
+        <Markdown remarkPlugins={[remarkGfm]} children={data?.info} />
       </ModalInfoContainer>
     </ModalContainer>
   );
