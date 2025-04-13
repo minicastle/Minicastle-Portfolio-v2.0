@@ -1,8 +1,10 @@
 import Footer from "../components/FooterBar";
 import styled from "@emotion/styled";
 import ProjectCard from "../components/ProjectCard";
-import { Original } from "../../public/data/projectList";
-const originalData = Original;
+import { Original, Clone } from "../../public/data/projectList";
+import { ReactElement, useCallback, useState } from "react";
+import Modal from "../functions/Modal";
+const allProjects = [...Original, ...Clone];
 const ProjectsMainContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,30 +16,44 @@ const ProjectsMainContainer = styled.div`
 `;
 const ProjectCardContainer = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   height: fit-content;
   width: 50%;
   flex-wrap: wrap;
   gap: 20px;
   flex-shrink: 1;
+  padding: 50px 0;
 `;
 
 function Projects() {
+  const [modal, setModal] = useState<number>(0);
+  const modalHandler = useCallback((e: number): void => {
+    setModal(e);
+  }, []);
+  const projectCardGen = useCallback(() => {
+    const contents: ReactElement[] = [];
+    for (let i = 0; i < allProjects.length; i++) {
+      contents.push(
+        <ProjectCard
+          deg={allProjects[i].deg}
+          data={allProjects[i]}
+          key={`project card ${i}`}
+          modalHandler={modalHandler}
+          index={i + 1}
+        />
+      );
+    }
+    return contents;
+  }, [modalHandler]);
   return (
     <ProjectsMainContainer>
-      <h1>Project List</h1>
-      <h1></h1>
-      <ProjectCardContainer>
-        <ProjectCard deg={-5} data={originalData[0]} key={"test1"} />
-        {/* <ProjectCard deg={3} data={originalData[1]} key={"test2"} />
-        <ProjectCard deg={-2} data={originalData[2]} key={"test3"} />
-        <ProjectCard deg={-2} data={originalData[3]} key={"test4"} />
-        <ProjectCard deg={-2} data={originalData[4]} key={"test5"} />
-        <ProjectCard deg={-2} data={originalData[5]} key={"test6"} />
-        <ProjectCard deg={-2} data={originalData[6]} key={"test7"} /> */}
-      </ProjectCardContainer>
-      Projects
+      <ProjectCardContainer>{projectCardGen()}</ProjectCardContainer>
+      <Modal
+        shown={modal !== 0}
+        modalHandler={modalHandler}
+        data={allProjects[modal - 1]}
+      />
       <Footer />
     </ProjectsMainContainer>
   );

@@ -20,7 +20,7 @@ function TestPage() {
   return (
     <TestContainer>
       {/* modal test */}
-      <Modal shown={modal === 1} closer={modalHandler}></Modal>
+      <Modal shown={modal === 1} modalHandler={modalHandler}></Modal>
       <ModalButton onClick={() => modalHandler(1)}>OPEN MODAL</ModalButton>
       {/* <MailBox /> */}
     </TestContainer>

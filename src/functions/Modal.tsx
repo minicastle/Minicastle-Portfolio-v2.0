@@ -1,12 +1,14 @@
 import styled from "@emotion/styled";
-import { useEffect, useRef, useState } from "react";
+import { ReactElement, useCallback, useEffect, useRef, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { ProjectSet } from "../../public/data/projectList";
+import { CardButton, CardJustifyContainer } from "../components/ProjectCard";
+import { FaExternalLinkSquareAlt, FaGithubSquare } from "react-icons/fa";
 interface Props {
   shown: boolean;
-  closer: (e: number) => void;
+  modalHandler: (e: number) => void;
   data?: ProjectSet;
 }
 
@@ -15,13 +17,14 @@ const ModalContainer = styled.div<{ shown: boolean }>`
   display: flex;
   width: ${({ shown }) => (shown ? "90%" : "0px")};
   height: ${({ shown }) => (shown ? "90%" : "0px")};
-  position: absolute;
+  position: fixed;
+  top: 70px;
   background-color: white;
   border-radius: 10px;
-  border: 1px solid #eee;
+  border: ${({ shown }) => (shown ? "1px" : "0px")} solid #eee;
   z-index: 101;
   overflow-y: hidden;
-  box-shadow: 0 10 10 10 black;
+  box-shadow: 2px 2px 10px 2px #000;
 `;
 const ModalFnContainer = styled.div`
   position: absolute;
@@ -34,12 +37,40 @@ const ModalFnButton = styled.div`
 `;
 const ModalThumbContainer = styled.div`
   display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   justify-content: flex-start;
   height: 100%;
   width: 30%;
   padding: 10px;
   border-right: 1px solid black;
+  color: black;
+  user-select: none;
+`;
+const ModalThumb = styled.img`
+  box-sizing: border-box;
+  display: block;
+  width: 480px;
+  height: fit-content;
+  padding: 5px;
+  border: 1px solid #adadad;
+  box-shadow: 0px 0px 10px 0px black;
+  border-radius: 8px;
+`;
+const ModalTitle = styled.p`
+  font-size: 20px;
+  text-shadow: 1px 1px 1px black;
+`;
+const ModalTags = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+`;
+const ModalTag = styled.span`
+  font-size: 15px;
+  color: #089750;
 `;
 const ModalInfoContainer = styled.div`
   display: flex;
@@ -62,14 +93,21 @@ const ModalInfoContainer = styled.div`
     border-radius: 2px;
   }
 `;
-function Modal({ shown, closer, data }: Props) {
+function Modal({ shown, modalHandler, data }: Props) {
   const [isOpen, setIsOpen] = useState<boolean>(shown);
   const ModalArea = useRef<HTMLDivElement | null>(null);
+  const tagGen = useCallback(() => {
+    const contents: ReactElement[] = [];
+    for (const i in data?.tags) {
+      contents.push(<ModalTag key={`tags ${i}`}>#{data?.tags[i]}</ModalTag>);
+    }
+    return contents;
+  }, [data]);
   useEffect(() => {
     if (!isOpen) setIsOpen(shown);
     const clickOutSide = (e) => {
       if (!ModalArea?.current?.contains(e.target)) {
-        closer(0);
+        modalHandler(0);
         setIsOpen(false);
       }
     };
@@ -81,20 +119,33 @@ function Modal({ shown, closer, data }: Props) {
     } else {
       document.removeEventListener("mousedown", clickOutSide);
     }
-  }, [closer, isOpen, shown]);
+  }, [modalHandler, isOpen, shown]);
   return (
     <ModalContainer ref={ModalArea} shown={isOpen}>
       <ModalFnContainer>
         <ModalFnButton
           onClick={() => {
             setIsOpen(false);
-            closer(0);
+            modalHandler(0);
           }}
         >
           <IoMdClose />
         </ModalFnButton>
       </ModalFnContainer>
-      <ModalThumbContainer></ModalThumbContainer>
+      <ModalThumbContainer>
+        <ModalThumb src={data?.img} />
+        <ModalTitle>{data?.title}</ModalTitle>
+        <ModalTags>{tagGen()}</ModalTags>
+        <CardJustifyContainer>
+          <CardButton href={data?.link} target="blank">
+            SITE
+            <FaExternalLinkSquareAlt size={15} />
+          </CardButton>
+          <CardButton href={data?.git} target="blank">
+            GIT <FaGithubSquare size={15} />
+          </CardButton>
+        </CardJustifyContainer>
+      </ModalThumbContainer>
       <ModalInfoContainer>
         <Markdown remarkPlugins={[remarkGfm]} children={data?.info} />
       </ModalInfoContainer>
