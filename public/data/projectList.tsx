@@ -1,11 +1,11 @@
-import audioEffector from "../dataImage/AE.png";
+import projectTycoon from "../dataImage/projecttycoon.png";
+import mover from "../dataImage/Mover.png";
+import AE from "../dataImage/AE.png";
+import nature from "../dataImage/nature.png";
+import musicSelector from "../dataImage/musicselector.png";
+import kakao from "../dataImage/kakao.png";
 import colco from "../dataImage/colco.png";
 import jollyFlow from "../dataImage/jollyflow.png";
-import kakao from "../dataImage/kakao.png";
-import mover from "../dataImage/Mover.png";
-import musicSelector from "../dataImage/musicselector.png";
-import nature from "../dataImage/nature.png";
-import projectTycoon from "../dataImage/projecttycoon.png";
 export interface ProjectSet {
   title: string;
   img: string;
@@ -43,7 +43,7 @@ export const Original: ProjectSet[] = [
   {
     title: "Audio Effector",
     info: "",
-    img: audioEffector,
+    img: AE,
     tags: ["Original", "Electron", "React", "WebAudioApi"],
     link: "https://github.com/minicastle/AudioEffector/releases/tag/1.0.1",
     git: "https://github.com/minicastle/AudioEffector",
