@@ -1,4 +1,4 @@
-import audioEffector from "../dataImage/audioeffector.png";
+import audioEffector from "../dataImage/AE.png";
 import colco from "../dataImage/colco.png";
 import jollyFlow from "../dataImage/jollyflow.png";
 import kakao from "../dataImage/kakao.png";
