@@ -535,14 +535,6 @@ function Home({ scrollEvent }: Props) {
           />
         </SectionContainer>
       </Section>
-      <Section id="home section3">
-        <SectionContainer id="contact" direction="row">
-          <div id="contact1"></div>
-          <div id="contact2"></div>
-          <div id="contact3"></div>
-          <div id="contact4"></div>
-        </SectionContainer>
-      </Section>
       <Footer />
     </HomeContainer>
   );

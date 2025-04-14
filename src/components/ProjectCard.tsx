@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { FaExternalLinkSquareAlt, FaGithubSquare } from "react-icons/fa";
-import { ProjectSet } from "../../public/data/projectList";
+import { ProjectSet } from "../assets/data/projectList";
 import { FaBookOpen } from "react-icons/fa6";
 interface Props {
   data: ProjectSet;

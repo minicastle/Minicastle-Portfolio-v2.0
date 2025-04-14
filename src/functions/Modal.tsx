@@ -3,7 +3,7 @@ import { ReactElement, useCallback, useEffect, useRef, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { ProjectSet } from "../../public/data/projectList";
+import { ProjectSet } from "../assets/data/projectList";
 import { CardButton, CardJustifyContainer } from "../components/ProjectCard";
 import { FaExternalLinkSquareAlt, FaGithubSquare } from "react-icons/fa";
 interface Props {

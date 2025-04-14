@@ -1,7 +1,7 @@
 import Footer from "../components/FooterBar";
 import styled from "@emotion/styled";
 import ProjectCard from "../components/ProjectCard";
-import { Original, Clone } from "../../public/data/projectList";
+import { Original, Clone } from "../assets/data/projectList";
 import { ReactElement, useCallback, useState } from "react";
 import Modal from "../functions/Modal";
 const allProjects = [...Original, ...Clone];
