@@ -126,6 +126,7 @@ function Home({ scrollEvent }: Props) {
   const [titleView, setTitleView] = useState<number>(0);
   console.log(scrollEvent);
   useEffect(() => {
+    window.scrollTo(0, 0);
     const Title1 = new IntersectionObserver(
       (e) => {
         if (e[0].isIntersecting) {

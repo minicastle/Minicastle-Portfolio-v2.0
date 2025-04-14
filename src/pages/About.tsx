@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Footer from "../components/FooterBar";
 import styled from "@emotion/styled";
 
@@ -10,6 +11,9 @@ const AboutMainContainer = styled.div`
 `;
 
 function About() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <AboutMainContainer>
       About

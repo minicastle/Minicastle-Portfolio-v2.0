@@ -6,6 +6,8 @@ import remarkGfm from "remark-gfm";
 import { ProjectSet } from "../assets/data/projectList";
 import { CardButton, CardJustifyContainer } from "../components/ProjectCard";
 import { FaExternalLinkSquareAlt, FaGithubSquare } from "react-icons/fa";
+import rehypeHighlight from "rehype-highlight";
+import rehypeRaw from "rehype-raw";
 interface Props {
   shown: boolean;
   modalHandler: (e: number) => void;
@@ -92,6 +94,14 @@ const ModalInfoContainer = styled.div`
     background-color: black;
     border-radius: 2px;
   }
+  table {
+    border: 1px solid black;
+  }
+  td,
+  th {
+    padding: 6px 13px;
+    border: 1px solid black;
+  }
 `;
 function Modal({ shown, modalHandler, data }: Props) {
   const [isOpen, setIsOpen] = useState<boolean>(shown);
@@ -147,7 +157,11 @@ function Modal({ shown, modalHandler, data }: Props) {
         </CardJustifyContainer>
       </ModalThumbContainer>
       <ModalInfoContainer>
-        <Markdown remarkPlugins={[remarkGfm]} children={data?.info} />
+        <Markdown
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeHighlight, rehypeRaw]}
+          children={data?.info}
+        />
       </ModalInfoContainer>
     </ModalContainer>
   );

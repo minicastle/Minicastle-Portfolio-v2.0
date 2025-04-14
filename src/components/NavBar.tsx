@@ -63,7 +63,9 @@ function NavBar() {
       <MenuList id="menu List">
         <MenuItem
           page={pathname === "/home" || pathname === "/"}
-          onClick={() => navigate("/home")}
+          onClick={() => {
+            navigate("/home");
+          }}
         >
           Home
         </MenuItem>

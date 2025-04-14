@@ -2,7 +2,7 @@ import Footer from "../components/FooterBar";
 import styled from "@emotion/styled";
 import ProjectCard from "../components/ProjectCard";
 import { Original, Clone } from "../assets/data/projectList";
-import { ReactElement, useCallback, useState } from "react";
+import { ReactElement, useCallback, useEffect, useState } from "react";
 import Modal from "../functions/Modal";
 const allProjects = [...Original, ...Clone];
 const ProjectsMainContainer = styled.div`
@@ -46,6 +46,9 @@ function Projects() {
     }
     return contents;
   }, [modalHandler]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <ProjectsMainContainer>
       <ProjectCardContainer>{projectCardGen()}</ProjectCardContainer>
