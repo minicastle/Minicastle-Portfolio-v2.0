@@ -8,6 +8,7 @@ import NavBar from "./components/NavBar";
 import { useCallback, useEffect, useState } from "react";
 import Logo from "./components/Logo";
 import TestPage from "./pages/TestPage";
+import Footer from "./components/FooterBar";
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -18,6 +19,13 @@ const MainContainer = styled.div`
   height: fit-content;
   background-color: #1b263b;
   color: white;
+`;
+
+export const MainTitle = styled.span<{ color?: string }>`
+  width: fit-content;
+  font-size: 80px;
+  font-family: "logo";
+  color: ${({ color }) => (color ? color : "white")};
 `;
 
 function App() {
@@ -60,6 +68,7 @@ function App() {
           <Route path="/test" element={<TestPage />} />
           <Route path="/*" element={<Navigate to={"/"} />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </MainContainer>
   );

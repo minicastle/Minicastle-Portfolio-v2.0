@@ -1,4 +1,3 @@
-import Footer from "../components/FooterBar";
 import styled from "@emotion/styled";
 import ProjectCard from "../components/ProjectCard";
 import { Original, Clone } from "../assets/data/projectList";
@@ -57,7 +56,6 @@ function Projects() {
         modalHandler={modalHandler}
         data={allProjects[modal - 1]}
       />
-      <Footer />
     </ProjectsMainContainer>
   );
 }

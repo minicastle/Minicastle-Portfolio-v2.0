@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { BsGithub } from "react-icons/bs";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import { AiOutlineMail, AiFillInstagram } from "react-icons/ai";
 import WobbleTop from "../functions/WobbleTop";
 import WobbleVertical from "../functions/WobbleVertical";
@@ -81,6 +82,10 @@ const SubList = styled.ul`
   @media screen and (max-width: 400px) {
     gap: 10px;
   }
+  a {
+    text-decoration: none;
+    color: white;
+  }
 `;
 /** 서브 리스트 아이템 */
 const SubListItem = styled.li`
@@ -139,15 +144,21 @@ function Footer() {
         >
           <WobbleTop>About</WobbleTop>
           <SubList>
-            <SubListItem onClick={() => navigate("/about?id=school")}>
-              <WobbleTop>School</WobbleTop>
-            </SubListItem>
-            <SubListItem onClick={() => navigate("/about?id=career")}>
-              <WobbleTop>Career</WobbleTop>
-            </SubListItem>
-            <SubListItem onClick={() => navigate("/about?id=education")}>
-              <WobbleTop>Education</WobbleTop>
-            </SubListItem>
+            <Link to={"/about#school"}>
+              <SubListItem>
+                <WobbleTop>School</WobbleTop>
+              </SubListItem>
+            </Link>
+            <Link to={"/about#career"}>
+              <SubListItem>
+                <WobbleTop>Career</WobbleTop>
+              </SubListItem>
+            </Link>
+            <Link to={"/about#education"}>
+              <SubListItem>
+                <WobbleTop>Education</WobbleTop>
+              </SubListItem>
+            </Link>
           </SubList>
         </MainListItem>
         <MainListItem
@@ -164,15 +175,21 @@ function Footer() {
         >
           <WobbleTop>Contact</WobbleTop>
           <SubList>
-            <SubListItem onClick={() => navigate("/contact?id=email")}>
-              <WobbleTop>E-mail</WobbleTop>
-            </SubListItem>
-            <SubListItem onClick={() => navigate("/contact?id=git")}>
-              <WobbleTop>Git</WobbleTop>
-            </SubListItem>
-            <SubListItem onClick={() => navigate("/contact?id=address")}>
-              <WobbleTop>Address</WobbleTop>
-            </SubListItem>
+            <Link to={"/contact#email"}>
+              <SubListItem>
+                <WobbleTop>E-mail</WobbleTop>
+              </SubListItem>
+            </Link>
+            <Link to={"/contact#git"}>
+              <SubListItem>
+                <WobbleTop>Git</WobbleTop>
+              </SubListItem>
+            </Link>
+            <Link to={"/contact#address"}>
+              <SubListItem>
+                <WobbleTop>Address</WobbleTop>
+              </SubListItem>
+            </Link>
           </SubList>
         </MainListItem>
       </MainList>

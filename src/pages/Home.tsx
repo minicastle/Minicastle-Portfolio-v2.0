@@ -57,12 +57,12 @@ const SectionContainer = styled.div<{ direction: "row" | "column" }>`
   min-height: 600px;
   height: fit-content;
 `;
-const SectionBackground = styled.img`
+export const SectionBackground = styled.img`
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 0;
   opacity: 0.2;
 `;
 const GrowTextBox = styled.div`

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-// import MailBox from "../components/MailBox";
 import Modal, { ModalButton } from "../functions/Modal";
 import { useCallback, useState } from "react";
+import MailBox from "../components/MailBox";
 
 const TestContainer = styled.div`
   display: flex;
@@ -23,6 +23,7 @@ function TestPage() {
       <Modal shown={modal === 1} modalHandler={modalHandler}></Modal>
       <ModalButton onClick={() => modalHandler(1)}>OPEN MODAL</ModalButton>
       {/* <MailBox /> */}
+      <MailBox></MailBox>
     </TestContainer>
   );
 }

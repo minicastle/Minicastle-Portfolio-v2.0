@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { useCallback, useState } from "react";
 import { MdMarkEmailRead } from "react-icons/md";
 const MailBoxContainer = styled.div`
@@ -9,6 +10,7 @@ const MailBoxContainer = styled.div`
   width: 100%;
   height: 100vh;
   max-width: 300px;
+  min-width: 300px;
   max-height: 520px;
   border: 2px solid transparent;
   position: relative;
@@ -69,7 +71,7 @@ const BodyBox = styled.textarea`
   display: block;
   box-sizing: border-box;
   width: 270px;
-  height: 300px;
+  height: 155px;
   transition: 200ms;
   background-color: transparent;
   color: white;
@@ -146,7 +148,7 @@ const InfoContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   position: absolute;
-  bottom: 10px;
+  bottom: 5px;
 `;
 const InfoText = styled.span`
   font-size: 10px;
@@ -175,48 +177,56 @@ function MailBox() {
     [maxLength]
   );
   return (
-    <MailBoxContainer>
-      <DesignBorder />
-      <TextBox>
-        Contact Me!
-        <MdMarkEmailRead size={50} color="#dda15e" />
-      </TextBox>
-      <MailContents>
-        <LabelTag shown={mailTitle !== ""}>Mail Title</LabelTag>
-        <TitleInput
-          required
-          type="text"
-          value={mailTitle}
-          onChange={titleHandler}
+    <>
+      <MailBoxContainer>
+        <DesignBorder />
+        <TextBox>
+          Contact Me!
+          <MdMarkEmailRead size={50} color="#dda15e" />
+        </TextBox>
+        <DotLottieReact
+          src="https://lottie.host/9dc5aeca-8c63-4408-955b-b07f23e901fd/DA9neB7Jj4.lottie"
+          loop
+          autoplay
+          style={{ height: "fit-content" }}
         />
-      </MailContents>
-      <MailContents>
-        <LabelTag shown={mailBody !== ""}>Mail Body</LabelTag>
-        <BodyBox onChange={bodyHandler} value={mailBody} />
-      </MailContents>
-      <SubmitButton
-        onClick={() => {
-          if (mailTitle !== "" && mailBody !== "") {
-            window.location.assign(
-              `mailto:minicastle@kakao.com?subject=${mailTitle}&body=${mailBody}`
-            );
-          } else if (mailTitle === "") {
-            alert("📤메일 제목을 입력해주세요.📤");
-          } else {
-            alert("📤메일 내용을 입력해주세요.📤");
-          }
-        }}
-      >
-        Mail Send
-      </SubmitButton>
-      <InfoContainer>
-        <InfoText>* 내장된 메일 프로그램을 통해 발송됩니다.</InfoText>
-        <InfoText>
-          * 최대 길이 이상 혹은 첨부파일이 필요한경우 전송버튼을 누른후
-        </InfoText>
-        <InfoText>메일 프로그램에서 이어서 작성해주시기 바랍니다.</InfoText>
-      </InfoContainer>
-    </MailBoxContainer>
+        <MailContents>
+          <LabelTag shown={mailTitle !== ""}>Mail Title</LabelTag>
+          <TitleInput
+            required
+            type="text"
+            value={mailTitle}
+            onChange={titleHandler}
+          />
+        </MailContents>
+        <MailContents>
+          <LabelTag shown={mailBody !== ""}>Mail Body</LabelTag>
+          <BodyBox onChange={bodyHandler} value={mailBody} />
+        </MailContents>
+        <SubmitButton
+          onClick={() => {
+            if (mailTitle !== "" && mailBody !== "") {
+              window.location.assign(
+                `mailto:minicastle@kakao.com?subject=${mailTitle}&body=${mailBody}`
+              );
+            } else if (mailTitle === "") {
+              alert("📤메일 제목을 입력해주세요.📤");
+            } else {
+              alert("📤메일 내용을 입력해주세요.📤");
+            }
+          }}
+        >
+          Mail Send
+        </SubmitButton>
+        <InfoContainer>
+          <InfoText>* 내장된 메일 프로그램을 통해 발송됩니다.</InfoText>
+          <InfoText>
+            * 최대 길이 이상 혹은 첨부파일이 필요한경우 전송버튼을 누른후
+          </InfoText>
+          <InfoText>메일 프로그램에서 이어서 작성해주시기 바랍니다.</InfoText>
+        </InfoContainer>
+      </MailBoxContainer>
+    </>
   );
 }
 
