@@ -21,7 +21,6 @@ import FixTitleElement, {
 } from "../components/FixTitleElement";
 import WaveCard, { WaveCardContainer } from "../components/WaveCard";
 import { useEffect, useRef, useState } from "react";
-import Footer from "../components/FooterBar";
 import Particle from "../components/Particle";
 interface Props {
   scrollEvent?: number;
