@@ -536,7 +536,6 @@ function Home({ scrollEvent }: Props) {
           />
         </SectionContainer>
       </Section>
-      <Footer />
     </HomeContainer>
   );
 }

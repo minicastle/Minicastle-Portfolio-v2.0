@@ -68,7 +68,7 @@ function App() {
           <Route path="/test" element={<TestPage />} />
           <Route path="/*" element={<Navigate to={"/"} />} />
         </Routes>
-        <Footer />
+        {logo ? "" : <Footer />}
       </BrowserRouter>
     </MainContainer>
   );
