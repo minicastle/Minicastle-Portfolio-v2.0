@@ -69,6 +69,7 @@ const StickyBox = styled.div`
 `;
 function Contact() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     const container = document.getElementById("kakaomap");
     const options = {
       center: new kakao.maps.LatLng(37.5642135, 127.0016985), //지도의 중심좌표.
