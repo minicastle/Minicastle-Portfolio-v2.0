@@ -17,7 +17,7 @@ const ContactContainer = styled.div`
 const ContactContents = styled.div`
   display: flex;
   width: 80%;
-  min-height: 100vh;
+  min-height: 80vh;
   position: relative;
   box-sizing: border-box;
   padding: 10px 100px;
@@ -92,6 +92,22 @@ function Contact() {
     });
     // 마커가 지도 위에 표시되도록 설정합니다
     marker.setMap(map);
+    const infoMarker = `
+    <div style="padding:5px;display:flex;flex-direction:column;width:fit-content;height:fit-content;color:black;">
+    MiniCastle Home
+      <br>
+        <a href="https://map.kakao.com/link/map/Minicastle Home,37.644909106647,127.007480203776" style="color:#70a9ff" target="_blank">
+          지도보기 →
+        </a> 
+        <a href="https://map.kakao.com/link/to/Minicastle Home,37.644909106647,127.007480203776" style="color:#70a9ff" target="_blank">
+          길찾기 →
+        </a>
+    </div>`;
+    const infoWindow = new kakao.maps.InfoWindow({
+      position: new kakao.maps.LatLng(37.644909106647, 127.007480203776),
+      content: infoMarker,
+    });
+    infoWindow.open(map, marker);
   }, []);
   return (
     <ContactContainer>
@@ -128,8 +144,10 @@ function Contact() {
                 }}
               />
             </ContactInfo>
-            <ContactTitle>Adress</ContactTitle>
-            <ContactInfo>서울특별시 4.10로 13길</ContactInfo>
+          </ContactColumn>
+          <ContactColumn>
+            <ContactTitle>Address</ContactTitle>
+            <ContactInfo>서울특별시 4.19로 13길</ContactInfo>
             <div
               id="kakaomap"
               style={{
@@ -140,7 +158,6 @@ function Contact() {
               }}
             />
           </ContactColumn>
-          <ContactColumn></ContactColumn>
         </ContactContent>
         <SectionBackground src="../../public/images/Background.png" />
         <StickyBox>
