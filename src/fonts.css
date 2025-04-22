@@ -2,3 +2,7 @@
     font-family: "Logo";
     src: url("../public/fonts/seasideresortnf.regular.ttf");
 }
+@font-face{
+    font-family: 'SPGothic';
+    src: url("../public/fonts/SpecialGothicCondensedOne-Regular.ttf");
+}

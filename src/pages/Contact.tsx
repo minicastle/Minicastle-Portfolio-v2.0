@@ -20,7 +20,7 @@ const ContactContents = styled.div`
   min-height: 80vh;
   position: relative;
   box-sizing: border-box;
-  padding: 10px 100px;
+  padding: 10px 30px 10px 100px;
 `;
 const ContactContent = styled.div`
   display: flex;
@@ -62,7 +62,7 @@ const StickyBox = styled.div`
   position: sticky;
   position: -webkit-sticky;
   top: 70px;
-  right: 0;
+  right: 0px;
   display: flex;
   width: fit-content;
   height: fit-content;

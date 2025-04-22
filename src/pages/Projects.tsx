@@ -3,6 +3,7 @@ import ProjectCard from "../components/ProjectCard";
 import { Original, Clone } from "../assets/data/projectList";
 import { ReactElement, useCallback, useEffect, useState } from "react";
 import Modal from "../functions/Modal";
+import { MainTitle } from "../App";
 const allProjects = [...Original, ...Clone];
 const ProjectsMainContainer = styled.div`
   display: flex;
@@ -50,6 +51,7 @@ function Projects() {
   }, []);
   return (
     <ProjectsMainContainer>
+      <MainTitle color="#81cce9">Projects!</MainTitle>
       <ProjectCardContainer>{projectCardGen()}</ProjectCardContainer>
       <Modal
         shown={modal !== 0}

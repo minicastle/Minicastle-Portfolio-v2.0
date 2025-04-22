@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { ReactElement, useState } from "react";
+import { BiSolidDownArrow, BiSolidUpArrow } from "react-icons/bi";
 interface Props {
   children: ReactElement[];
 }
@@ -11,11 +12,12 @@ const RollUpComponent = styled.div<{ rollUp: boolean }>`
   overflow-y: hidden;
   padding: 10px 10px 30px 0;
   border-radius: 10px;
-  box-shadow: 2px 2px 5px 0px black;
-  width: 50%;
+  /* box-shadow: 2px 2px 5px 0px black; */
+  width: 100%;
   box-sizing: border-box;
   position: relative;
-  height: ${({ rollUp }) => (rollUp ? "fit-content" : "300px")};
+  height: ${({ rollUp }) => (rollUp ? "fit-content" : "100px")};
+  padding-bottom: ${({ rollUp }) => (rollUp ? "30px" : "50px")};
 `;
 const RollUpButton = styled.div`
   display: flex;
@@ -41,7 +43,17 @@ function RollUp({ children }: Props) {
           setRollUp((rollUp) => !rollUp);
         }}
       >
-        {rollUp ? "∧ 간단히" : "∨ 더보기"}
+        {rollUp ? (
+          <>
+            <BiSolidUpArrow style={{ marginRight: "3px" }} />
+            간단히
+          </>
+        ) : (
+          <>
+            <BiSolidDownArrow style={{ marginRight: "3px" }} />
+            더보기
+          </>
+        )}
       </RollUpButton>
     </RollUpComponent>
   );
