@@ -63,7 +63,15 @@ function About() {
           <AboutTitle>School</AboutTitle>
           <AboutListItemContent>
             <AboutImageContainer>
-              <AboutImage src={school} alt="school image" />
+              <AboutImage
+                src="https://sudo.myapply.kr/Content/sudo/images/main_img_1.png"
+                alt="school"
+              />
+              <AboutImage src={school} alt="school logo" />
+              <AboutImage
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/SUDO_Electrical_Engineering_High_School_Front_View.jpg/800px-SUDO_Electrical_Engineering_High_School_Front_View.jpg"
+                alt="school poster"
+              />
             </AboutImageContainer>
             <RollUp></RollUp>
           </AboutListItemContent>

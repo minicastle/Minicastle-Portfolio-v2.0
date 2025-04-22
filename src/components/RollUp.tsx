@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { ReactElement, useState } from "react";
 import { BiSolidDownArrow, BiSolidUpArrow } from "react-icons/bi";
 interface Props {
-  children: ReactElement[];
+  children?: ReactElement[];
 }
 const RollUpComponent = styled.div<{ rollUp: boolean }>`
   display: flex;
