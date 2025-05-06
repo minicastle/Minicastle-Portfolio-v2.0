@@ -19,6 +19,7 @@ const MainContainer = styled.div`
   height: fit-content;
   background-color: #1b263b;
   color: white;
+  overflow: hidden;
 `;
 
 export const MainTitle = styled.span<{ color?: string }>`

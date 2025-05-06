@@ -11,14 +11,40 @@ const LogoContainer = styled.div`
   color: #c7f9cc;
   font-family: "Logo";
   z-index: 100;
-  animation: heightControl 1s ease-in-out both;
-  animation-delay: 4.5s;
-  @keyframes heightControl {
+  @media screen and (min-width: 1000px) {
+    animation: heightControlMax 1s ease-in-out both;
+    animation-delay: 4.5s;
+  }
+  @media screen and (max-width: 1000px) {
+    animation: heightControl1000 1s ease-in-out both;
+    animation-delay: 4.5s;
+  }
+  @media screen and (max-width: 550px) {
+    animation: heightControl550 1s ease-in-out both;
+    animation-delay: 4.5s;
+  }
+  @keyframes heightControlMax {
     from {
       height: 100vh;
     }
     to {
       height: 200px;
+    }
+  }
+  @keyframes heightControl1000 {
+    from {
+      height: 100vh;
+    }
+    to {
+      height: 150px;
+    }
+  }
+  @keyframes heightControl550 {
+    from {
+      height: 100vh;
+    }
+    to {
+      height: 100px;
     }
   }
 `;
@@ -41,6 +67,12 @@ const LogoItem1 = styled.div<{ starter: boolean }>`
       opacity: 1;
     }
   }
+  @media screen and (max-width: 1000px) {
+    font-size: 50px;
+  }
+  @media screen and (max-width: 550px) {
+    font-size: 30px;
+  }
 `;
 const LogoItem2 = styled.span<{ starter: boolean; left: number }>`
   width: max-content;
@@ -61,6 +93,12 @@ const LogoItem2 = styled.span<{ starter: boolean; left: number }>`
       transform: translateY(0%);
     }
   }
+  @media screen and (max-width: 1000px) {
+    font-size: 100px;
+  }
+  @media screen and (max-width: 550px) {
+    font-size: 50px;
+  }
 `;
 const LogoItem3 = styled.span<{ starter: boolean; left: number }>`
   width: max-content;
@@ -76,6 +114,12 @@ const LogoItem3 = styled.span<{ starter: boolean; left: number }>`
     to {
       transform: translateY(0%);
     }
+  }
+  @media screen and (max-width: 1000px) {
+    font-size: 100px;
+  }
+  @media screen and (max-width: 550px) {
+    font-size: 50px;
   }
 `;
 const LogoImage = styled.img`

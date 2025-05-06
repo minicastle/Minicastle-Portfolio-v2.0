@@ -66,11 +66,39 @@ function About() {
               <AboutImage
                 src="https://sudo.myapply.kr/Content/sudo/images/main_img_1.png"
                 alt="school"
+                loading="lazy"
               />
-              <AboutImage src={school} alt="school logo" />
+              <AboutImage src={school} alt="school logo" loading="lazy" />
               <AboutImage
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/SUDO_Electrical_Engineering_High_School_Front_View.jpg/800px-SUDO_Electrical_Engineering_High_School_Front_View.jpg"
                 alt="school poster"
+                loading="lazy"
+              />
+            </AboutImageContainer>
+            <RollUp></RollUp>
+          </AboutListItemContent>
+        </AboutListItem>
+        <AboutListItem>
+          <AboutTitle>Career</AboutTitle>
+          <AboutListItemContent>
+            <AboutImageContainer>
+              <AboutImage
+                src="https://sudo.myapply.kr/Content/sudo/images/main_img_1.png"
+                alt="school"
+                loading="lazy"
+              />
+            </AboutImageContainer>
+            <RollUp></RollUp>
+          </AboutListItemContent>
+        </AboutListItem>
+        <AboutListItem>
+          <AboutTitle>Education</AboutTitle>
+          <AboutListItemContent>
+            <AboutImageContainer>
+              <AboutImage
+                src="https://sudo.myapply.kr/Content/sudo/images/main_img_1.png"
+                alt="school"
+                loading="lazy"
               />
             </AboutImageContainer>
             <RollUp></RollUp>

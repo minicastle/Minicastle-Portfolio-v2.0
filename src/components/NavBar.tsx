@@ -12,11 +12,17 @@ const NavContainer = styled.div`
   box-sizing: border-box;
   height: fit-content;
   z-index: 11;
+  @media screen and (max-width: 500px) {
+    padding: 0 10px;
+  }
 `;
 const MenuList = styled.ul`
   display: flex;
   list-style: none;
   gap: 10px;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 const MenuItem = styled.li<{ page: boolean }>`
   font-size: 25px;
@@ -47,6 +53,9 @@ const NavTitle = styled.span`
   left: 50%;
   transform: translate(-50%, -50%);
   user-select: none;
+  @media screen and (max-width: 500px) {
+    font-size: 25px;
+  }
 `;
 function NavBar() {
   const { pathname } = useLocation();

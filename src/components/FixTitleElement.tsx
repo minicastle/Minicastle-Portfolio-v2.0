@@ -17,6 +17,9 @@ const FixElementContainer = styled.div`
   gap: 20px;
   position: relative;
   margin-bottom: 30%;
+  @media screen and (max-width: 500px) {
+    margin-bottom: 20px;
+  }
 `;
 /** 고정형 타이틀 Element 설명부분 */
 const FixElementInfo = styled.div`
@@ -30,6 +33,9 @@ const FixElementInfo = styled.div`
   height: fit-content;
   gap: 150px;
   padding-top: 20px;
+  @media screen and (max-width: 500px) {
+    gap: 50px;
+  }
 `;
 /** 고정형 타이틀을 이용한 설명형 구성 */
 function FixTitleElement(
@@ -83,9 +89,15 @@ export const FixTitle = styled.p`
   margin: 0;
   font-weight: bold;
   text-transform: uppercase;
+  @media screen and (max-width: 500px) {
+    font-size: 2em;
+  }
 `;
 export const FixTitleImage = styled.img`
   height: 300px;
+  @media screen and (max-width: 500px) {
+    height: 150px;
+  }
 `;
 export const FixInfoTitle = styled.p`
   font-size: 2em;
@@ -117,6 +129,9 @@ export const FixInfoDetailEnter = styled.p`
   display: flex;
   align-items: center;
   max-width: 80%;
+  @media screen and (max-width: 500px) {
+    max-width: 100%;
+  }
 `;
 export const FixInfoImage = styled.img`
   width: 50%;

@@ -33,6 +33,9 @@ const HomeContainer = styled.div`
   height: fit-content;
   margin-top: 100px;
   position: relative;
+  @media screen and (max-width: 500px) {
+    width: 90%;
+  }
 `;
 const Section = styled.section`
   position: relative;
@@ -55,6 +58,9 @@ const SectionContainer = styled.div<{ direction: "row" | "column" }>`
   z-index: 10;
   min-height: 600px;
   height: fit-content;
+  @media screen and (max-width: 950px) {
+    flex-direction: column;
+  }
 `;
 export const SectionBackground = styled.img`
   position: absolute;
@@ -91,6 +97,10 @@ const Title = styled.h1`
   flex-wrap: wrap;
   font-size: 2.4em;
   padding: 0 0 5px 0;
+  gap: 5px;
+  @media screen and (max-width: 500px) {
+    font-size: 1.5em;
+  }
 `;
 const ShakeDiv = styled.div`
   display: flex;
@@ -132,7 +142,7 @@ function Home({ scrollEvent }: Props) {
           setTitleView(1);
         }
       },
-      { rootMargin: "-100px 0px -20% 0px" }
+      { rootMargin: "-100px 0px -10% 0px" }
     );
     const Title2 = new IntersectionObserver(
       (e) => {
@@ -140,7 +150,7 @@ function Home({ scrollEvent }: Props) {
           setTitleView(2);
         }
       },
-      { rootMargin: "-100px 0px -20% 0px" }
+      { rootMargin: "-100px 0px -10% 0px" }
     );
     const Title3 = new IntersectionObserver(
       (e) => {
@@ -148,7 +158,7 @@ function Home({ scrollEvent }: Props) {
           setTitleView(3);
         }
       },
-      { rootMargin: "-100px 0px -20% 0px" }
+      { rootMargin: "-100px 0px -10% 0px" }
     );
     if (Titles.current) {
       Title1.observe(Titles.current[0]);
@@ -170,7 +180,8 @@ function Home({ scrollEvent }: Props) {
               <AnimateSpan />
             </Title>
             <Title>
-              Welcome to <ColorSpan> Minicastle</ColorSpan> Portfolio
+              Welcome to
+              <ColorSpan>Minicastle</ColorSpan> Portfolio
             </Title>
             <Title>
               <TextWriter />
