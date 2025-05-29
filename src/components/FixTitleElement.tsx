@@ -7,9 +7,6 @@ interface Props {
 /** 고정형 타이틀 및 설명 Element 컨테이너 */
 const FixElementContainer = styled.div`
   display: flex;
-  @media screen and (max-width: 1040px) {
-    flex-direction: column;
-  }
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
@@ -17,6 +14,9 @@ const FixElementContainer = styled.div`
   gap: 20px;
   position: relative;
   margin-bottom: 30%;
+  @media screen and (max-width: 1040px) {
+    flex-direction: column;
+  }
   @media screen and (max-width: 500px) {
     margin-bottom: 20px;
   }

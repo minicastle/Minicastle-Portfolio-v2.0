@@ -81,6 +81,9 @@ const GrowTextBox = styled.div`
   min-height: 300px;
   flex-shrink: 0.5;
   z-index: 10;
+  @media screen and (max-width: 950px) {
+    width: 90%;
+  }
 `;
 const GrowImage = styled.img<{ borderRadius?: string }>`
   width: 100%;
@@ -142,7 +145,7 @@ function Home({ scrollEvent }: Props) {
           setTitleView(1);
         }
       },
-      { rootMargin: "-100px 0px -10% 0px" }
+      { rootMargin: "-100px 0px -20% 0px" }
     );
     const Title2 = new IntersectionObserver(
       (e) => {
@@ -150,7 +153,7 @@ function Home({ scrollEvent }: Props) {
           setTitleView(2);
         }
       },
-      { rootMargin: "-100px 0px -10% 0px" }
+      { rootMargin: "-100px 0px -20% 0px" }
     );
     const Title3 = new IntersectionObserver(
       (e) => {
@@ -158,7 +161,7 @@ function Home({ scrollEvent }: Props) {
           setTitleView(3);
         }
       },
-      { rootMargin: "-100px 0px -10% 0px" }
+      { rootMargin: "-100px 0px -20% 0px" }
     );
     if (Titles.current) {
       Title1.observe(Titles.current[0]);

@@ -46,15 +46,15 @@ const MyLogo = styled.img`
 `;
 const NavTitle = styled.span`
   color: #c7f9cc;
-  font-size: 50px;
+  font-size: 25px;
   font-family: "Logo";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   user-select: none;
-  @media screen and (max-width: 500px) {
-    font-size: 25px;
+  @media screen and (min-width: 1070px) {
+    font-size: 50px;
   }
 `;
 function NavBar() {
